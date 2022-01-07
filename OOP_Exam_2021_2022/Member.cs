@@ -14,12 +14,34 @@ namespace OOP_Exam_2021_2022
         public enum PaymentSchedule { Annual, Biannual, monthly }
         public PaymentSchedule schedule { get; set; }
 
+        private DateTime renewalDate { get; }
+
+
         public Member(string Name, DateTime JoinDate, decimal Fee, PaymentSchedule schedule)
         {
             this.Name = Name;
             this.JoinDate = JoinDate;
             this.Fee = Fee;
             this.schedule = schedule;
+
+            // set renewal date
+            // if current date day/month is greater than join date day/month, then the renewal is next year
+            if (DateTime.Today.Month > JoinDate.Month)
+            {
+                // next year
+                renewalDate = new DateTime(DateTime.Today.Year + 1, JoinDate.Month, JoinDate.Day);
+            }
+            else if (DateTime.Today.Month == JoinDate.Month && DateTime.Today.Day > JoinDate.Day)
+            {
+                // month is the same, has the day gone by?
+                // yes? next year
+                renewalDate = new DateTime(DateTime.Today.Year + 1, JoinDate.Month, JoinDate.Day);
+            }
+            else
+            {
+                // the day/month has not occured, there fore the next occurance is this year
+                renewalDate = new DateTime(DateTime.Today.Year, JoinDate.Month, JoinDate.Day);
+            }
         }
 
         //calculate the regular charge based on payment schedule
@@ -54,7 +76,7 @@ namespace OOP_Exam_2021_2022
                 $"Join date: {JoinDate}\n" +
                 $"Basic fee: {Fee}\n" +
                 $"Payment schedule: {schedule} - {CalculateFees()}\n" +
-                $"Renewal date:\n" +
+                $"Renewal date:{renewalDate.ToShortDateString()}\n" +
                 $"Days to renewal: \n" +
                 $"Member Type: ";
         }
