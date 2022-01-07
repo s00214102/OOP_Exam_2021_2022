@@ -46,5 +46,17 @@ namespace OOP_Exam_2021_2022
         {
             return $"{Name}";
         }
+
+        // display member details
+        public string DisplayDetails()
+        {
+            return $"{Name}\n" +
+                $"Join date: {JoinDate}\n" +
+                $"Basic fee: {Fee}\n" +
+                $"Payment schedule: {schedule} - {CalculateFees()}\n" +
+                $"Renewal date:\n" +
+                $"Days to renewal: \n" +
+                $"Member Type: ";
+        }
     }
 }

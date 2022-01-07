@@ -30,24 +30,32 @@ namespace OOP_Exam_2021_2022
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < 9; i++)
+            // create 9 members with different payment schedules
+            for (int i = 0; i < 3; i++)
             {
-                CreateMember();
+                CreateMember(Member.PaymentSchedule.Annual);
             }
-
-            Console.WriteLine(membersList);
+            for (int i = 0; i < 3; i++)
+            {
+                CreateMember(Member.PaymentSchedule.Biannual);
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                CreateMember(Member.PaymentSchedule.monthly);
+            }
 
             UpdateListBox();
         }
+        // update the list box item source to show contents of the members list
         void UpdateListBox()
         {
             lbMembers.ItemsSource = null;
             lbMembers.ItemsSource = membersList;
         }
 
-        void CreateMember()
+        void CreateMember(Member.PaymentSchedule schedule)
         {
-            Member newMember = new Member(RandomName(), RandomAge(), RandomFee(), Member.PaymentSchedule.Annual);
+            Member newMember = new Member(RandomName(), RandomAge(), RandomFee(), schedule);
             membersList.Add(newMember);
         }
         string RandomName()
@@ -73,7 +81,8 @@ namespace OOP_Exam_2021_2022
         }
         private void LbMembers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Member selectedMember = lbMembers.SelectedItem as Member;
+            txbkMemberDetails.Text = selectedMember.DisplayDetails();
         }
         private void RbAll_Checked(object sender, RoutedEventArgs e)
         {
