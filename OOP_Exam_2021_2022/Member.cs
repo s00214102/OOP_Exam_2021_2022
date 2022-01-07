@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace OOP_Exam_2021_2022
 {
-    class Member
+    public class Member
     {
         public string Name { get; set; }
         public DateTime JoinDate { get; set; }
         public decimal Fee { get; set; }
         public enum PaymentSchedule { Annual, Biannual, monthly }
         public PaymentSchedule schedule { get; set; }
+        public string memberType { get; set; }
 
         private DateTime renewalDate { get; }
 
@@ -26,12 +27,13 @@ namespace OOP_Exam_2021_2022
             set { myVar = value; }
         }
 
-        public Member(string Name, DateTime JoinDate, decimal Fee, PaymentSchedule schedule)
+        public Member(string Name, DateTime JoinDate, decimal Fee, PaymentSchedule schedule, string memberType)
         {
             this.Name = Name;
             this.JoinDate = JoinDate;
             this.Fee = Fee;
             this.schedule = schedule;
+            this.memberType = memberType;
 
             // set renewal date
             // if current date day/month is greater than join date day/month, then the renewal is next year
@@ -87,7 +89,7 @@ namespace OOP_Exam_2021_2022
                 $"Payment schedule: {schedule} - {CalculateFees()}\n" +
                 $"Renewal date:{renewalDate.ToShortDateString()}\n" +
                 $"Days to renewal: {daysToRenewal}\n" +
-                $"Member Type: ";
+                $"Member Type: {memberType}";
         }
     }
 }

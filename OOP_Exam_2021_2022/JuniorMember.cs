@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace OOP_Exam_2021_2022
 {
-    class JuniorMember
+    class JuniorMember : Member
     {
-
+        public JuniorMember(string Name, DateTime JoinDate, decimal Fee, PaymentSchedule schedule, string memberType) : base(Name, JoinDate, Fee, schedule, memberType)
+        {
+            this.Fee *= 0.5m;
+        }
     }
 }
