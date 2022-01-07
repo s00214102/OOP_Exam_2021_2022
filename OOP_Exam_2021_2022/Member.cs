@@ -15,7 +15,28 @@ namespace OOP_Exam_2021_2022
         public PaymentSchedule schedule { get; set; }
         public string memberType { get; set; }
 
-        private DateTime renewalDate { get; }
+        private DateTime renewalDate
+        {
+            get
+            {
+                if (DateTime.Today.Month > JoinDate.Month)
+                {
+                    // next year
+                    return new DateTime(DateTime.Today.Year + 1, JoinDate.Month, JoinDate.Day);
+                }
+                else if (DateTime.Today.Month == JoinDate.Month && DateTime.Today.Day > JoinDate.Day)
+                {
+                    // month is the same, has the day gone by?
+                    // yes? next year
+                    return new DateTime(DateTime.Today.Year + 1, JoinDate.Month, JoinDate.Day);
+                }
+                else
+                {
+                    // the day/month has not occured, there fore the next occurance is this year
+                    return new DateTime(DateTime.Today.Year, JoinDate.Month, JoinDate.Day);
+                }
+            }
+        }
 
         private int daysToRenewal { get { return (renewalDate - DateTime.Today).Days;} }
 
@@ -37,22 +58,22 @@ namespace OOP_Exam_2021_2022
 
             // set renewal date
             // if current date day/month is greater than join date day/month, then the renewal is next year
-            if (DateTime.Today.Month > JoinDate.Month)
-            {
-                // next year
-                renewalDate = new DateTime(DateTime.Today.Year + 1, JoinDate.Month, JoinDate.Day);
-            }
-            else if (DateTime.Today.Month == JoinDate.Month && DateTime.Today.Day > JoinDate.Day)
-            {
-                // month is the same, has the day gone by?
-                // yes? next year
-                renewalDate = new DateTime(DateTime.Today.Year + 1, JoinDate.Month, JoinDate.Day);
-            }
-            else
-            {
-                // the day/month has not occured, there fore the next occurance is this year
-                renewalDate = new DateTime(DateTime.Today.Year, JoinDate.Month, JoinDate.Day);
-            }
+            //if (DateTime.Today.Month > JoinDate.Month)
+            //{
+            //    // next year
+            //    renewalDate = new DateTime(DateTime.Today.Year + 1, JoinDate.Month, JoinDate.Day);
+            //}
+            //else if (DateTime.Today.Month == JoinDate.Month && DateTime.Today.Day > JoinDate.Day)
+            //{
+            //    // month is the same, has the day gone by?
+            //    // yes? next year
+            //    renewalDate = new DateTime(DateTime.Today.Year + 1, JoinDate.Month, JoinDate.Day);
+            //}
+            //else
+            //{
+            //    // the day/month has not occured, there fore the next occurance is this year
+            //    renewalDate = new DateTime(DateTime.Today.Year, JoinDate.Month, JoinDate.Day);
+            //}
         }
 
         //calculate the regular charge based on payment schedule
@@ -86,7 +107,7 @@ namespace OOP_Exam_2021_2022
             return $"{Name}\n" +
                 $"Join date: {JoinDate}\n" +
                 $"Basic fee: {Fee}\n" +
-                $"Payment schedule: {schedule} - {CalculateFees()}\n" +
+                $"Payment schedule: {schedule} - {CalculateFees():C}\n" +
                 $"Renewal date:{renewalDate.ToShortDateString()}\n" +
                 $"Days to renewal: {daysToRenewal}\n" +
                 $"Member Type: {memberType}";

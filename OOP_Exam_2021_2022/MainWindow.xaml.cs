@@ -120,7 +120,9 @@ namespace OOP_Exam_2021_2022
         }
         decimal RandomFee()
         {
-            return rand.Next(100, 900);
+            // i had a random number but decided to change it to a constant 500 to test the member types discounts
+            return 500;
+            //return rand.Next(100, 900);
         }
 
         // event handlers
