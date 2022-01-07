@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace OOP_Exam_2021_2022
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Github: https://github.com/s00214102/OOP_Exam_2021_2022
     /// </summary>
     public partial class MainWindow : Window
     {
