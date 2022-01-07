@@ -16,6 +16,15 @@ namespace OOP_Exam_2021_2022
 
         private DateTime renewalDate { get; }
 
+        private int daysToRenewal { get { return (renewalDate - DateTime.Today).Days;} }
+
+        private int myVar;
+
+        public int MyProperty
+        {
+            get { return myVar; }
+            set { myVar = value; }
+        }
 
         public Member(string Name, DateTime JoinDate, decimal Fee, PaymentSchedule schedule)
         {
@@ -77,7 +86,7 @@ namespace OOP_Exam_2021_2022
                 $"Basic fee: {Fee}\n" +
                 $"Payment schedule: {schedule} - {CalculateFees()}\n" +
                 $"Renewal date:{renewalDate.ToShortDateString()}\n" +
-                $"Days to renewal: \n" +
+                $"Days to renewal: {daysToRenewal}\n" +
                 $"Member Type: ";
         }
     }
