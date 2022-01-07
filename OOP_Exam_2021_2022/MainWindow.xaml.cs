@@ -24,5 +24,25 @@ namespace OOP_Exam_2021_2022
         {
             InitializeComponent();
         }
+
+        private void RbAll_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RbRegular_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RbSenior_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RbJunior_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <ListBox x:Name="lbMembers" HorizontalAlignment="Left" Height="279" Margin="63,73,0,0" VerticalAlignment="Top" Width="265"/>
+        <Label Content="Member List" HorizontalAlignment="Left" Margin="63,37,0,0" VerticalAlignment="Top" Width="133" FontSize="16"/>
+        <RadioButton x:Name="rbAll" Content="All" HorizontalAlignment="Left" Margin="63,370,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbRegular" Content="Regular" HorizontalAlignment="Left" Margin="117,370,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbSenior" Content="Senior" HorizontalAlignment="Left" Margin="198,370,0,0" VerticalAlignment="Top"/>
+
+        <Label Content="Member Details" HorizontalAlignment="Left" Margin="440,37,0,0" VerticalAlignment="Top" Width="133" FontSize="16"/>
+        <TextBlock x:Name="txbkMemberDetails" HorizontalAlignment="Left" Margin="440,73,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="279" Width="262"/>
+
     </Grid>
 </Window>
