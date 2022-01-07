@@ -5,16 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OOP_Exam_2021_2022"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        <ListBox x:Name="lbMembers" HorizontalAlignment="Left" Height="279" Margin="63,73,0,0" VerticalAlignment="Top" Width="265"/>
+        <ListBox x:Name="lbMembers" HorizontalAlignment="Left" Height="279" Margin="63,73,0,0" VerticalAlignment="Top" Width="265" SelectionChanged="LbMembers_SelectionChanged"/>
         <Label Content="Member List" HorizontalAlignment="Left" Margin="63,37,0,0" VerticalAlignment="Top" Width="133" FontSize="16"/>
-        <RadioButton x:Name="rbAll" Content="All" HorizontalAlignment="Left" Margin="63,370,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbRegular" Content="Regular" HorizontalAlignment="Left" Margin="117,370,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbSenior" Content="Senior" HorizontalAlignment="Left" Margin="198,370,0,0" VerticalAlignment="Top"/>
-
+        
+        <RadioButton x:Name="rbAll" Content="All" HorizontalAlignment="Left" Margin="63,370,0,0" VerticalAlignment="Top" Checked="RbAll_Checked"/>
+        <RadioButton x:Name="rbRegular" Content="Regular" HorizontalAlignment="Left" Margin="117,370,0,0" VerticalAlignment="Top" Checked="RbRegular_Checked"/>
+        <RadioButton x:Name="rbSenior" Content="Senior" HorizontalAlignment="Left" Margin="198,370,0,0" VerticalAlignment="Top" Checked="RbSenior_Checked"/>
+        <RadioButton x:Name="rbJunior" Content="Junior" HorizontalAlignment="Left" Margin="275,370,0,0" VerticalAlignment="Top" Checked="RbJunior_Checked"/>
+        
         <Label Content="Member Details" HorizontalAlignment="Left" Margin="440,37,0,0" VerticalAlignment="Top" Width="133" FontSize="16"/>
         <TextBlock x:Name="txbkMemberDetails" HorizontalAlignment="Left" Margin="440,73,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="279" Width="262"/>
+        
 
     </Grid>
 </Window>

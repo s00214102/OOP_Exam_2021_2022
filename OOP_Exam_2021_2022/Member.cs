@@ -12,6 +12,39 @@ namespace OOP_Exam_2021_2022
         public DateTime JoinDate { get; set; }
         public decimal Fee { get; set; }
         public enum PaymentSchedule { Annual, Biannual, monthly }
+        public PaymentSchedule schedule { get; set; }
 
+        public Member(string Name, DateTime JoinDate, decimal Fee, PaymentSchedule schedule)
+        {
+            this.Name = Name;
+            this.JoinDate = JoinDate;
+            this.Fee = Fee;
+            this.schedule = schedule;
+        }
+
+        //calculate the regular charge based on payment schedule
+        public decimal CalculateFees()
+        {
+            switch (schedule)
+            {
+                case (PaymentSchedule.Annual):
+                    return Fee;
+
+                case (PaymentSchedule.Biannual):
+                    return Fee * 2;
+
+                case (PaymentSchedule.monthly):
+                    return Fee / 12;
+
+                default:
+                    return 0;
+            }
+        }
+
+        // override ToString to print name of the member in the list box
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
 }
