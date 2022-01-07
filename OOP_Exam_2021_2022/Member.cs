@@ -55,28 +55,10 @@ namespace OOP_Exam_2021_2022
             this.Fee = Fee;
             this.schedule = schedule;
             this.memberType = memberType;
-
-            // set renewal date
-            // if current date day/month is greater than join date day/month, then the renewal is next year
-            //if (DateTime.Today.Month > JoinDate.Month)
-            //{
-            //    // next year
-            //    renewalDate = new DateTime(DateTime.Today.Year + 1, JoinDate.Month, JoinDate.Day);
-            //}
-            //else if (DateTime.Today.Month == JoinDate.Month && DateTime.Today.Day > JoinDate.Day)
-            //{
-            //    // month is the same, has the day gone by?
-            //    // yes? next year
-            //    renewalDate = new DateTime(DateTime.Today.Year + 1, JoinDate.Month, JoinDate.Day);
-            //}
-            //else
-            //{
-            //    // the day/month has not occured, there fore the next occurance is this year
-            //    renewalDate = new DateTime(DateTime.Today.Year, JoinDate.Month, JoinDate.Day);
-            //}
         }
 
         //calculate the regular charge based on payment schedule
+        // i interpretted biannually as once every two years fyi
         public decimal CalculateFees()
         {
             switch (schedule)
@@ -105,8 +87,8 @@ namespace OOP_Exam_2021_2022
         public string DisplayDetails()
         {
             return $"{Name}\n" +
-                $"Join date: {JoinDate}\n" +
-                $"Basic fee: {Fee}\n" +
+                $"Join date: {JoinDate.ToShortDateString()}\n" +
+                $"Basic fee: {Fee:C}\n" +
                 $"Payment schedule: {schedule} - {CalculateFees():C}\n" +
                 $"Renewal date:{renewalDate.ToShortDateString()}\n" +
                 $"Days to renewal: {daysToRenewal}\n" +
